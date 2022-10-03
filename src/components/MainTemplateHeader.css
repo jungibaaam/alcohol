@@ -1,0 +1,10 @@
+.maintemplate-header{
+    width: 100%;
+    height: 10vh;
+    background-color: yellowgreen;
+}
+
+.button-position{
+    float: right;
+    margin-right: 5%;
+}

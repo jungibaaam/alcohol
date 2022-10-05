@@ -2,8 +2,12 @@
     width: auto;
     height: auto;
 }
+.maintemplate-header{
+    width: auto;
+    height: auto;
+}
 
-.maintemplate-main{
+.maintemplate-content{
     margin: auto;
 }
 
@@ -12,7 +16,7 @@
     height: auto;
 }
 
-.maintemplate-content{
+.maintemplate-mini-community{
     width: auto;
     height: auto;
 }

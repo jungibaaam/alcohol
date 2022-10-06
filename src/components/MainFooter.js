@@ -16,10 +16,10 @@ function MainFooter(props) {
     // }
     return (
         <footer className="main-footer">
-            <a href="/home" onClick={(event) => {
+            <a href="/HOME" onClick={(event) => {
                 event.preventDefault();
                 props.onChangeMode(String(event.target.menu));
-                console.log((event.target.menu));
+                console.log("HomeButton");
                 // setMode('HOME')
             }}
             >
@@ -28,6 +28,7 @@ function MainFooter(props) {
             <a href="/community" onClick={(event) => {
                 event.preventDefault();
                 props.onChangeMode(String(event.target.menu));
+                console.log("CommunityButton")
                 // setMode('COMMUNITY')
             }}
             >

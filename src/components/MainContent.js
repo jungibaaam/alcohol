@@ -25,6 +25,7 @@ function MainContent() {
             MainContent aa
             hi!
             {content}
+            <MainMiniCommunity />
             hi!
         </div>
     );

@@ -9,6 +9,7 @@ import Article from './Article';
 import Nav from './Nav'
 import Create from './Create'
 import Header from './Header'
+import './MainFooter.css';
 
 // MainTemplate, 기본적인 이벤트를 모두 처리하는 부분
 function MainTemplate() {
@@ -28,12 +29,14 @@ function MainTemplate() {
     ]);
 
     // 기본으로 띄우는 컨텐츠는 null로 띄우지 않도록 설정
-    let content = null;
+    let content = MainContent;
 
     // main화면일 경우 설정
     if(mode === 'HOME') {
+        console.log("Home mode")
         content = <MainContent />
     } else if(mode === 'COMMUNITY') {
+        console.log("Community mode")
         content = <MainMiniCommunity />
     } else if(mode === 'SEARCH') {
         // content = <MainSearch />
@@ -45,6 +48,7 @@ function MainTemplate() {
         // 버튼이 눌렸을 시, 해당 id를 찾아서 title과 body를 변경해준다
         for (let i = 0; i < topics.length; i ++) {
             console.log(topics[i].id, id);
+            console.log("what");
             if(topics[i].id === id) {
                 title = topics[i].title;
                 body = topics[i].body;
@@ -78,10 +82,43 @@ function MainTemplate() {
             </div>
             <div className='maintemplate-footer'>
                 <MainFooter onChangeMode={(_menu) => {
-                    setMode((_menu));
+                    setMode((_menu));                    
                     // 해당 메뉴의 인자를 받을 경우, {}를 통해 해당 메뉴로 이동할 수 있도록 설계해보기
                 }} />
                 </div>
+            
+                <footer className="main-footer">
+                    <a href="/HOME" onClick={(event) => {
+                        event.preventDefault();
+                        console.log("HomeButton");
+                        setMode('HOME')
+                    }}
+                    >
+                        <button className='footer-menu'>home</button>
+                    </a>
+                    <a href="/community" onClick={(event) => {
+                        event.preventDefault();
+                        console.log("CommunityButton")
+                        setMode('COMMUNITY')
+                    }}
+                    >
+                        <button className='footer-menu'>community</button>
+                    </a>
+                    <a href="/search" onClick={(event) => {
+                        event.preventDefault();
+                        setMode('SEARCH')
+                    }}
+                    >
+                        <button className='footer-menu'>search</button>
+                    </a>
+                    <a href="/mypgae" onClick={(event) => {
+                        event.preventDefault();
+                        setMode('MYPAGE')
+                    }}
+                    >
+                        <button className='footer-menu'>mypage</button>
+                    </a>
+                </footer>
 
             <Nav topics={topics} onChangeMode={(_id) => {
                 setMode('READ');

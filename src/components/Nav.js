@@ -7,6 +7,7 @@ function Nav(props) {
                 <a id={t.id} href={'/read/' + t.id} onClick={(event) => {
                     event.preventDefault();
                     props.onChangeMode(Number(event.target.id));
+                    console.log("Hello" + t, i, t.id)
                 }}
                 >
                     {t.title}

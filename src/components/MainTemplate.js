@@ -12,9 +12,11 @@ import Header from './Header'
 
 // MainTemplate, 기본적인 이벤트를 모두 처리하는 부분
 function MainTemplate() {
+
     // main화면의 상태로 setMode 하기. 기본 상태 설정, 우리는 HOME화면 모드로 설정하면 된다
     const [mode, setMode] = useState
     ('HOME'); // welcome이라는 값이 mode에 들어가서 세팅
+    
     const [id, setId] = useState();
     // create로 생성했을 때, 다음 인자를 넣어주기 위한 변수
     const [nextId, setNextId] = useState(null);
@@ -24,18 +26,19 @@ function MainTemplate() {
         { id: 2, title: 'css', body: 'css is ...'},
         { id: 3, title: 'js', body: 'js is ...'},
     ]);
+
     // 기본으로 띄우는 컨텐츠는 null로 띄우지 않도록 설정
-    let content = MainTemplate;
+    let content = null;
+
     // main화면일 경우 설정
     if(mode === 'HOME') {
-        <MainHeader />
-        content = MainRecommend;
+        content = <MainContent />
     } else if(mode === 'COMMUNITY') {
-        <MainMiniCommunity />
+        content = <MainMiniCommunity />
     } else if(mode === 'SEARCH') {
-        // <MainSearch />
+        // content = <MainSearch />
     } else if(mode === 'MYPAGE') {
-        // <MyPage />
+        // content = <MyPage />
     } else if(mode === 'READ') { // mode마다 각각 바뀔 수 있도록, 
         // 버튼이 눌릴 때마다 title과 body를 초기화
         let title, body = null;
@@ -71,15 +74,14 @@ function MainTemplate() {
                 }} />
             </div>
             <div className="maintemplate-content">
-                <MainContent content="HOME" onChangeMode={() => {
-                    setMode('');
-                }} />
+                <MainContent />
             </div>
             <div className='maintemplate-footer'>
                 <MainFooter onChangeMode={(_menu) => {
-                    setMode('');
+                    setMode((_menu));
+                    // 해당 메뉴의 인자를 받을 경우, {}를 통해 해당 메뉴로 이동할 수 있도록 설계해보기
                 }} />
-            </div>
+                </div>
 
             <Nav topics={topics} onChangeMode={(_id) => {
                 setMode('READ');

@@ -19,7 +19,7 @@ function Create(props) {
                 <p>
                     <input type="submit" value="Create"></input>
                 </p>
-            </form>            
+            </form>
         </article>
     );
 }
